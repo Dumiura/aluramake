@@ -1,0 +1,456 @@
+@import url(fontes.css);
+
+
+*
+
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header, footer
+
+{
+    width: 100%;
+    background: #f078c0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header
+
+{
+    height: 96px;
+}
+
+header h1, footer section h1
+
+{
+    color: white;
+    font-family: Press;
+    font-weight: 400;
+}
+
+
+
+
+main
+
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5vh;
+}
+
+
+.meusProdutos
+
+{
+    width: 55%;
+    margin-bottom: 50px;
+}
+
+
+.produtosText
+
+{
+    font-family: Press;
+    margin: 20px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.produtos
+
+{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    box-shadow: -12px 10px 5.8px rgba(0, 0, 0, 0.25);
+    padding: 10px 15px;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+.produtos::-webkit-scrollbar
+
+{
+    width: 6px;
+}
+
+.produtos::-webkit-scrollbar-thumb
+
+{
+    background: #f078c0;
+    border-radius: 5px;
+}
+
+.produtos::-webkit-scrollbar-track
+{
+    background: #ffcbe0;
+    border-radius: 5px;
+}
+
+.produto
+
+{
+    background: #ffc0cb;
+    width: 30%;
+    padding: 7px;
+    border-radius: 10px;
+    border: 3px solid #000;
+    color: rgb(0, 0, 0);
+    font-family: ProdutoText;
+    font-size: clamp(10px, calc(1vh + 1vw), 15px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.produtoText
+
+{
+    margin: 15px 0;
+}
+
+.price
+
+{
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+}
+.icon
+
+{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.crash, .pencil
+
+{
+    cursor: pointer;
+    transition: .2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.crash:hover, .pencil:hover
+
+{
+    scale: 1.15;
+}
+
+.image
+
+{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 30vh;
+    border-radius: 10px;
+}
+
+.addProduto
+
+{
+    width: 30%;
+}
+
+.addProduto section
+
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.alert
+
+{
+    font-size: clamp(10px, calc(1vh + 1vw), 15px);
+    font-family: ProdutoText;
+    color: red;
+    font-weight: 600;
+    display: none;
+}
+
+.inputGroup
+
+{
+    position: relative;
+    width: 70%;
+    font-size: clamp(10px, calc(1vh + 1vw), 15px);
+    font-family: ProdutoText;
+    color: #f078c0;
+}
+.addProduto section .inputGroup input, .edicao input
+
+{
+    width: 100%;
+    border: 2px solid #f078c0;
+    padding: 12px 15px;
+    border-radius: 100px;
+    outline: none;
+    font-size: clamp(10px, calc(1vh + 1vw), 15px);
+    font-family: ProdutoText;
+    color: #f078c0;
+}
+
+.inputGroup label
+
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+    transition: .2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.inputGroup :is(input:focus, input:valid) ~ label
+
+{
+    padding: 3px 15px;
+    border-radius: 50px;
+    border: 2px solid #f078c0;
+    border-bottom: 2px solid white;
+    background: #fff;
+    top: -2%;
+}
+
+.buttons
+
+{
+    width: 70%;
+    display: flex;
+    gap: 20px;
+}
+
+.buttons button
+
+{
+    width: 50%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: clamp(10px, calc(1vh + 1vw), 15px);
+    font-family: ProdutoText;
+    cursor: pointer;
+    transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.buttons button:hover, .alertaExclusao div button:hover, .edicao div button:hover
+
+{
+    scale: 1.08;
+}
+
+.buttons .guardar
+
+{
+    background: #f078c0;
+    color: #fff;
+    border: none;
+}
+
+.buttons .limpar
+
+{
+    border: 2px solid #f078c0;
+    background: transparent;
+    color: #f078c0;
+}
+
+.edicao
+
+{
+    width: 40vw;
+    padding: 30px;
+    background: #fff;
+    border: 2px solid #000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.edicao div
+
+{
+    display: flex;
+    gap: 15px;
+}
+
+.alertaExclusao
+
+{
+    width: 30vw;
+    padding: 30px;
+    background: #ffa6ca;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.alertaExclusao p, .edicao p
+
+{
+    font-size: clamp(10px, calc(1vh + 1vw), 15px);
+    font-family: ProdutoText;
+    margin: 20px;
+}
+
+.alertaExclusao div
+
+{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.alertaExclusao div button, .edicao div button
+
+{
+    font-family: ProdutoText;
+    font-size: medium;
+    width: 30%;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+
+.alertaExclusao div .excluir, .edicao div .salvar
+
+{
+    background: #f078c0;
+    border: none;
+    color: white;
+}
+
+.alertaExclusao div .cancelar, .edicao div .cancelar
+
+{
+    background: #fff;
+    border: none;
+    color: #000;
+}
+
+.edicao div .cancelar
+
+{
+    border: 2px solid #f078c0;
+    color: #f078c0;
+}
+
+.excluido, .salvo
+
+{
+    position: fixed;
+    background: #fff;
+    padding: 10px 15px;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: ProdutoText;
+    font-size: medium;
+    border: 2px solid #000;
+    border-radius: 100px;
+    scale: 0;
+    transition: .2s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+footer
+
+{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+}
+
+footer section 
+
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer p
+
+{
+    font-family: ProdutoText;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: small;
+}
+
+footer .dev
+
+{
+    font-size: medium;
+}
+
+
+@media (max-width: 1150px) {
+    .produto
+
+    {
+        width: 45%;
+    }
+
+    .alertaExclusao
+
+    {
+        width: 80%;
+    }
+}
+
+
+@media (max-width:930px) {
+    main
+
+    {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .addProduto
+
+    {
+        width: 80%;
+    }
+
+    .meusProdutos
+
+    {
+        margin-top: 50px;
+        width: 80%;
+    }
+    .edicao
+
+    {
+        width: 80%;
+    }
+}
+
+@media (max-width:650px) {
+    .produto 
+    
+    {
+        width: 90%;
+    }
+}
